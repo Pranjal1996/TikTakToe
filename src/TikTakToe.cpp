@@ -93,11 +93,11 @@ void PlayGame(){
 	delay(500);
 	}
 
-	validTurn = false;
-
 	getmouseclick(WM_LBUTTONDOWN,x,y);
 	//cout << "x is "<<x<<endl;
 	//cout << "y is "<<y<<endl;
+
+	validTurn = false;
 
 	//If block is clicked
 	for(int j = 0; j< 9;j++){
@@ -224,7 +224,18 @@ outtextxy(630, 470, "Designed by The Narayan Brothers");
 settextstyle(10, 4, 1);
 outtextxy(480, 30, "Welcome To The KaataGola Game!!!");
 
+while (!ismouseclick(WM_LBUTTONDOWN)){
+delay(500);
+
+getmouseclick(WM_LBUTTONDOWN,x,y);
+//cout << "x is "<<x<<endl;
+//cout << "y is "<<y<<endl;
+
+
+if(Play.ClickButton(x, y)){
 PlayGame();
+}
+}
 
 getch();
 closegraph();
