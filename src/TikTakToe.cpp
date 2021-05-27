@@ -110,84 +110,128 @@ void PlayGame(){
 	}
 
 //Gola Winning
+
+	//Left Vertical
 	if(a[0].GetState() == 1 && a[3].GetState() == 1 && a[6].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(225, 200, 225, 350);
 		break;
 	}
 
+	//Middle Vertical
 	else if(a[1].GetState() == 1 && a[4].GetState() == 1 && a[7].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(275, 200, 275, 350);
 		break;
 	}
 
-	else if(a[2].GetState() == 1 && a[4].GetState() == 1 && a[8].GetState() == 1){
+	//Right vertical
+	else if(a[2].GetState() == 1 && a[5].GetState() == 1 && a[8].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(325, 200, 325, 350);
 		break;
 	}
 
+	//Top left to bottom right diagonal
 	else if(a[0].GetState() == 1 && a[4].GetState() == 1 && a[8].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(200, 200, 350, 350);
 		break;
 	}
 
+	//Top right to bottom left diagonal
 	else if(a[2].GetState() == 1 && a[4].GetState() == 1 && a[6].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(350, 200, 200, 350);
 		break;
 	}
 
+	//Top horizontal
 	else if(a[0].GetState() == 1 && a[1].GetState() == 1 && a[2].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
 		break;
 	}
 
+	//Middle horizontal
 	else if(a[3].GetState() == 1 && a[4].GetState() == 1 && a[5].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
 		break;
 	}
 
+	//Down horizontal
 	else if(a[6].GetState() == 1 && a[7].GetState() == 1 && a[8].GetState() == 1){
 		outtextxy(360, 135, "Gola Wins!!!!");
 		break;
 	}
 
 	//Kaata Winning
+
+		//Left Vertical
 		if(a[0].GetState() == 2 && a[3].GetState() == 2 && a[6].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(225, 200, 225, 350);
 			break;
 		}
 
+		//Middle Vertical
 		else if(a[1].GetState() == 2 && a[4].GetState() == 2 && a[7].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(275, 200, 275, 350);
 			break;
 		}
 
-		else if(a[2].GetState() == 2 && a[4].GetState() == 2 && a[8].GetState() == 2){
+		//Right vertical
+		else if(a[2].GetState() == 2 && a[5].GetState() == 2 && a[8].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(325, 200, 325, 350);
 			break;
 		}
 
+		//Top left to bottom right diagonal
 		else if(a[0].GetState() == 2 && a[4].GetState() == 2 && a[8].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(200, 200, 350, 350);
 			break;
 		}
 
+		//Top right to bottom left diagonal
 		else if(a[2].GetState() == 2 && a[4].GetState() == 2 && a[6].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(350, 200, 200, 350);
 			break;
 		}
 
+		//Top horizontal
 		else if(a[0].GetState() == 2 && a[1].GetState() == 2 && a[2].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
 			break;
 		}
 
+		//Middle horizontal
 		else if(a[3].GetState() == 2 && a[4].GetState() == 2 && a[5].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
 			break;
 		}
 
+		//Down horizontal
 		else if(a[6].GetState() == 2 && a[7].GetState() == 2 && a[8].GetState() == 2){
 			outtextxy(360, 135, "Kaata Wins!!!!");
+			break;
+		}
+
+		//Draw
+		else if(a[0].GetOccuState() == true && a[1].GetOccuState() == true && a[2].GetOccuState() == true && a[3].GetOccuState() == true && a[4].GetOccuState() == true && a[5].GetOccuState() == true && a[6].GetOccuState() == true && a[7].GetOccuState() == true && a[8].GetOccuState() == true){
+			outtextxy(360, 135, "!!!!!!Draw!!!!!!");
 			break;
 		}
 
@@ -198,6 +242,7 @@ void PlayGame(){
 	TurnTeller(player);
 
 	}
+
 
 }
 

@@ -68,4 +68,8 @@ class Block {
 		return DrawTeller;
 	}
 
+	int GetOccuState(){
+		return occupied;
+	}
+
 	};
