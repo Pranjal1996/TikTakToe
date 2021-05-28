@@ -1,5 +1,3 @@
-
-
 #include "Block.h"
 #include<iostream>
 #include<graphics.h>
@@ -11,40 +9,6 @@ int y = 0;
 int player = 0;
 bool validTurn = false;
 
-class PlayButton {
-int x1;
-int x2;
-int y1;
-int y2;
-
-public:
-
-//Setting the values for rectangle
-void SetButton(int a, int b, int c, int d) {
-x1 = a;
-x2 = b;
-y1 = c;
-y2 = d;
-}
-
-//Printing from the given values
-void PrintButton() {
-setcolor(WHITE);
-rectangle(x1, y1, x2, y2);
-}
-
-//If Play Button is clicked
-bool ClickButton(int a, int b) {
-if (a >= x1 && a <= x2 && b >= y1 && b <= y2) {
-return true;
-}
-else {
-return false;
-}
-}
-
-};
-
 bool TurnTeller(int a) {
 
 //If Kaata is played
@@ -54,7 +18,6 @@ settextstyle(4, 4, 1);
 outtextxy(360, 135, "Gola's   Turn");
 return true;
 }
-
 //If Gola is played
 else {
 delay(50);
@@ -259,28 +222,27 @@ TurnTeller(player);
 
 }
 
+void PrintIntroPage(){
+	//Prints "Designed by The Narayan Brothers" at downmost right
+	settextstyle(10, 4, 1);
+	outtextxy(630, 470, "Designed by The Narayan Brothers");
+	//Prints "Welcome to The KaataGola Game" on the middle at the top
+	settextstyle(10, 4, 1);
+	outtextxy(480, 30, "Welcome To The KaataGola Game!!!");
+}
 int main() {
 
 int gd = DETECT, gm;
 initgraph(&gd, &gm, NULL);
 
+PrintIntroPage();
 //Defining a variable Play
-PlayButton Play;
-
+Block Play;
 //Setting the values for Play button
-Play.SetButton(220, 325, 65, 100);
+Play.SetValues(220, 325, 65, 100);
+Play.SetMessage("PLAY");
 //Printing from set values
-Play.PrintButton();
-
-//Prints PLAY on the Play button
-settextstyle(10, 4, 1);
-outtextxy(293, 94, "PLAY");
-//Prints "Designed by The Narayan Brothers" at downmost right
-settextstyle(10, 4, 1);
-outtextxy(630, 470, "Designed by The Narayan Brothers");
-//Prints "Welcome to The KaataGola Game" on the middle at the top
-settextstyle(10, 4, 1);
-outtextxy(480, 30, "Welcome To The KaataGola Game!!!");
+Play.PrintBlock();
 
 while (!ismouseclick(WM_LBUTTONDOWN)) {
 delay(500);
@@ -289,9 +251,11 @@ getmouseclick(WM_LBUTTONDOWN, x, y);
 //cout << "x is "<<x<<endl;
 //cout << "y is "<<y<<endl;
 
-
-if (Play.ClickButton(x, y)) {
+if (Play.BlockClick(x, y)) {
+cleardevice();
+PrintIntroPage();
 PlayGame();
+
 }
 }
 

@@ -11,7 +11,8 @@ class Block {
 	int y2 = 0;
 	bool occupied = false;
 	int DrawTeller = 0;
-
+	bool printMessage = false;
+	char Message[];
 	public:
 
 	void SetValues(int a, int b, int c, int d) {
@@ -20,12 +21,22 @@ class Block {
 	y1 = c;
 	y2 = d;
 	occupied = false;
-
+	printMessage = false;
+	//Message = "";
+	}
+	void SetMessage(string a){
+		strcpy(Message,a.c_str());
+		printMessage= true;
 	}
 
 	void PrintBlock() {
 	setcolor(WHITE);
 	rectangle(x1, y1, x2, y2);
+	//Prints PLAY on the Play button
+	if(printMessage){
+	settextstyle(10, 0, 1);
+	outtextxy(x1+(x2-x1)/3, y1 +(y2-y1)/8, Message);
+	}
 	}
 
 	bool BlockClick(int a, int b) {
