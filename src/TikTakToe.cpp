@@ -267,7 +267,7 @@ PrintIntroPage();
 Block Play;
 //Setting the values for Play button
 Play.SetValues(220, 325, 65, 100);
-Play.SetMessage("PLAY");
+outtextxy(293, 94, "PLAY");
 //Printing from set values
 Play.PrintBlock();
 
