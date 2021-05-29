@@ -75,140 +75,166 @@ validTurn = a[j].TakeAction(player);
 
 //Gola Winning
 
-//Left Vertical
-if (a[0].GetState() == 1 && a[3].GetState() == 1 && a[6].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(225, 200, 225, 350);
-break;
+//Vertical
+int q = 0;
+int w = 3;
+int e = 6;
+int x1 = 225;
+int x2 = 200;
+int y1 = 225;
+int y2 = 350;
+bool win = false;
+for(int i = 0; i<3; i++){
+
+	if(a[q+i].GetState() == 1 && a[w+i].GetState() == 1 && a[e+i].GetState() == 1) {
+		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(x1+i*50, x2, y1+i*50, y2);
+		win = true;
+		break;
+}
 }
 
-//Middle Vertical
-else if (a[1].GetState() == 1 && a[4].GetState() == 1 && a[7].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(275, 200, 275, 350);
-break;
+if(win == true){
+	break;
 }
 
-//Right vertical
-else if (a[2].GetState() == 1 && a[5].GetState() == 1 && a[8].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(325, 200, 325, 350);
-break;
+//Diagonal
+q = 0;
+w = 4;
+e = 8;
+x1 = 200;
+x2 = 200;
+y1 = 350;
+y2 = 350;
+win = false;
+for(int i = 0; i<2; i++){
+
+	if(a[q+i+i].GetState() == 1 && a[w].GetState() == 1 && a[e-i-i].GetState() == 1){
+
+		outtextxy(360, 135, "Gola Wins!!!!");
+		setcolor(CYAN);
+		line(x1+i*150, x2, y1-i*150, y2);
+		win = true;
+		break;
+	}
 }
 
-//Top left to bottom right diagonal
-else if (a[0].GetState() == 1 && a[4].GetState() == 1 && a[8].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(200, 200, 350, 350);
-break;
+if(win == true){
+	break;
 }
 
-//Top right to bottom left diagonal
-else if (a[2].GetState() == 1 && a[4].GetState() == 1 && a[6].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(350, 200, 200, 350);
-break;
+//Horizontal
+q = 0;
+w = 1;
+e = 2;
+x1 = 200;
+x2 = 225;
+y1 = 350;
+y2 = 225;
+win = false;
+for(int i = 0; i<3; i++){
+
+	if(a[q+i+i+i].GetState() == 1 && a[w+i+i+i].GetState() == 1 && a[e+i+i+i].GetState() == 1){
+
+			outtextxy(360, 135, "Gola Wins!!!!");
+			setcolor(CYAN);
+			line(x1, x2+i*50, y1, y2+i*50);
+			win = true;
+			break;
+		}
 }
 
-//Top horizontal
-else if (a[0].GetState() == 1 && a[1].GetState() == 1 && a[2].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(200, 225, 350, 225);
-break;
-}
-
-//Middle horizontal
-else if (a[3].GetState() == 1 && a[4].GetState() == 1 && a[5].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(200, 275, 350, 275);
-break;
-}
-
-//Down horizontal
-else if (a[6].GetState() == 1 && a[7].GetState() == 1 && a[8].GetState() == 1) {
-outtextxy(360, 135, "Gola Wins!!!!");
-setcolor(CYAN);
-line(200, 325, 350, 325);
-break;
+if(win == true){
+	break;
 }
 
 //Kaata Winning
 
-//Left Vertical
-if (a[0].GetState() == 2 && a[3].GetState() == 2 && a[6].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(225, 200, 225, 350);
-break;
+//Vertical
+q = 0;
+w = 3;
+e = 6;
+x1 = 225;
+x2 = 200;
+y1 = 225;
+y2 = 350;
+win = false;
+for(int i = 0; i<3; i++){
+
+	if(a[q+i].GetState() == 2 && a[w+i].GetState() == 2 && a[e+i].GetState() == 2) {
+		outtextxy(360, 135, "Kaata Wins!!!!");
+		setcolor(CYAN);
+		line(x1+i*50, x2, y1+i*50, y2);
+		win = true;
+		break;
+}
 }
 
-//Middle Vertical
-else if (a[1].GetState() == 2 && a[4].GetState() == 2 && a[7].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(275, 200, 275, 350);
-break;
+if(win == true){
+	break;
 }
 
-//Right vertical
-else if (a[2].GetState() == 2 && a[5].GetState() == 2 && a[8].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(325, 200, 325, 350);
-break;
+//Diagonal
+q = 0;
+w = 4;
+e = 8;
+x1 = 200;
+x2 = 200;
+y1 = 350;
+y2 = 350;
+win = false;
+for(int i = 0; i<2; i++){
+
+	if(a[q+i+i].GetState() == 2 && a[w].GetState() == 2 && a[e-i-i].GetState() == 2){
+
+		outtextxy(360, 135, "Kaata Wins!!!!");
+		setcolor(CYAN);
+		line(x1+i*150, x2, y1-i*150, y2);
+		win = true;
+		break;
+	}
 }
 
-//Top left to bottom right diagonal
-else if (a[0].GetState() == 2 && a[4].GetState() == 2 && a[8].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(200, 200, 350, 350);
-break;
+if(win == true){
+	break;
 }
 
-//Top right to bottom left diagonal
-else if (a[2].GetState() == 2 && a[4].GetState() == 2 && a[6].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(350, 200, 200, 350);
-break;
+//Horizontal
+q = 0;
+w = 1;
+e = 2;
+x1 = 200;
+x2 = 225;
+y1 = 350;
+y2 = 225;
+win = false;
+for(int i = 0; i<3; i++){
+
+	if(a[q+i+i+i].GetState() == 2 && a[w+i+i+i].GetState() == 2 && a[e+i+i+i].GetState() == 2){
+
+			outtextxy(360, 135, "Gola Wins!!!!");
+			setcolor(CYAN);
+			line(x1, x2+i*50, y1, y2+i*50);
+			win = true;
+			break;
+		}
 }
 
-//Top horizontal
-else if (a[0].GetState() == 2 && a[1].GetState() == 2 && a[2].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(200, 225, 350, 225);
-break;
+if(win == true){
+	break;
 }
-
-//Middle horizontal
-else if (a[3].GetState() == 2 && a[4].GetState() == 2 && a[5].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(200, 275, 350, 275);
-break;
-}
-
-//Down horizontal
-else if (a[6].GetState() == 2 && a[7].GetState() == 2 && a[8].GetState() == 2) {
-outtextxy(360, 135, "Kaata Wins!!!!");
-setcolor(CYAN);
-line(200, 325, 350, 325);
-break;
-}
-
 //Draw
-else if (a[0].GetOccuState() == true && a[1].GetOccuState() == true && a[2].GetOccuState() == true && a[3].GetOccuState() == true && a[4].GetOccuState() == true && a[5].GetOccuState() == true && a[6].GetOccuState() == true && a[7].GetOccuState() == true && a[8].GetOccuState() == true) {
-outtextxy(360, 135, "!!!!!!Draw!!!!!!");
-break;
+int i = 0;
+for(; i<9; i++){
+
+	if(a[i].GetOccuState() == false){
+		break;
+	}
+}
+if (i == 9){
+	outtextxy(360, 135, "!!!!!!Draw!!!!!!");
+	break;
 }
 
 if (validTurn) {
@@ -230,6 +256,7 @@ void PrintIntroPage(){
 	settextstyle(10, 4, 1);
 	outtextxy(480, 30, "Welcome To The KaataGola Game!!!");
 }
+
 int main() {
 
 int gd = DETECT, gm;
