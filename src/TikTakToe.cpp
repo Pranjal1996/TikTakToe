@@ -5,9 +5,141 @@ using namespace std;
 
 int x = 0;
 int y = 0;
-
+Block a[9];
 int player = 0;
 bool validTurn = false;
+
+bool GolaWins(){
+
+	//Vertical
+	int q = 0;
+	int w = 3;
+	int e = 6;
+	int x1 = 225;
+	int x2 = 200;
+	int y1 = 225;
+	int y2 = 350;
+	bool win = false;
+	for(int i = 0; i<3; i++){
+
+		if(a[q+i].GetState() == 1 && a[w+i].GetState() == 1 && a[e+i].GetState() == 1) {
+			outtextxy(360, 135, "Gola Wins!!!!");
+			setcolor(CYAN);
+			line(x1+i*50, x2, y1+i*50, y2);
+			win = true;
+			return win;
+	}
+	}
+
+	//Diagonal
+	q = 0;
+	w = 4;
+	e = 8;
+	x1 = 200;
+	x2 = 200;
+	y1 = 350;
+	y2 = 350;
+	win = false;
+	for(int i = 0; i<2; i++){
+
+		if(a[q+i+i].GetState() == 1 && a[w].GetState() == 1 && a[e-i-i].GetState() == 1){
+
+			outtextxy(360, 135, "Gola Wins!!!!");
+			setcolor(CYAN);
+			line(x1+i*150, x2, y1-i*150, y2);
+			win = true;
+			return win;
+		}
+	}
+
+	//Horizontal
+	q = 0;
+	w = 1;
+	e = 2;
+	x1 = 200;
+	x2 = 225;
+	y1 = 350;
+	y2 = 225;
+	win = false;
+	for(int i = 0; i<3; i++){
+
+		if(a[q+i+i+i].GetState() == 1 && a[w+i+i+i].GetState() == 1 && a[e+i+i+i].GetState() == 1){
+
+				outtextxy(360, 135, "Gola Wins!!!!");
+				setcolor(CYAN);
+				line(x1, x2+i*50, y1, y2+i*50);
+				win = true;
+				return win;
+			}
+	}
+	return win;
+}
+
+bool KaataWins(){
+
+	//Vertical
+	int q = 0;
+	int w = 3;
+	int e = 6;
+	int x1 = 225;
+	int x2 = 200;
+	int y1 = 225;
+	int y2 = 350;
+	bool win = false;
+	for(int i = 0; i<3; i++){
+
+		if(a[q+i].GetState() == 2 && a[w+i].GetState() == 2 && a[e+i].GetState() == 2) {
+			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(x1+i*50, x2, y1+i*50, y2);
+			win = true;
+			return win;
+	}
+	}
+
+	//Diagonal
+	q = 0;
+	w = 4;
+	e = 8;
+	x1 = 200;
+	x2 = 200;
+	y1 = 350;
+	y2 = 350;
+	win = false;
+	for(int i = 0; i<2; i++){
+
+		if(a[q+i+i].GetState() == 2 && a[w].GetState() == 2 && a[e-i-i].GetState() == 2){
+
+			outtextxy(360, 135, "Kaata Wins!!!!");
+			setcolor(CYAN);
+			line(x1+i*150, x2, y1-i*150, y2);
+			win = true;
+			return win;
+		}
+	}
+
+	//Horizontal
+	q = 0;
+	w = 1;
+	e = 2;
+	x1 = 200;
+	x2 = 225;
+	y1 = 350;
+	y2 = 225;
+	win = false;
+	for(int i = 0; i<3; i++){
+
+		if(a[q+i+i+i].GetState() == 2 && a[w+i+i+i].GetState() == 2 && a[e+i+i+i].GetState() == 2){
+
+				outtextxy(360, 135, "Gola Wins!!!!");
+				setcolor(CYAN);
+				line(x1, x2+i*50, y1, y2+i*50);
+				win = true;
+				return win;
+			}
+	}
+	return win;
+}
 
 bool TurnTeller(int a) {
 
@@ -32,7 +164,6 @@ void PlayGame() {
 
 settextstyle(4, 4, 1);
 outtextxy(360, 135, "Kaata's Turn");
-Block a[9];
 
 //Setting the values for blocks
 a[0].SetValues(200, 250, 200, 250);
@@ -74,156 +205,15 @@ validTurn = a[j].TakeAction(player);
 }
 
 //Gola Winning
-
-//Vertical
-int q = 0;
-int w = 3;
-int e = 6;
-int x1 = 225;
-int x2 = 200;
-int y1 = 225;
-int y2 = 350;
-bool win = false;
-for(int i = 0; i<3; i++){
-
-	if(a[q+i].GetState() == 1 && a[w+i].GetState() == 1 && a[e+i].GetState() == 1) {
-		outtextxy(360, 135, "Gola Wins!!!!");
-		setcolor(CYAN);
-		line(x1+i*50, x2, y1+i*50, y2);
-		win = true;
-		break;
-}
-}
-
-if(win == true){
-	break;
-}
-
-//Diagonal
-q = 0;
-w = 4;
-e = 8;
-x1 = 200;
-x2 = 200;
-y1 = 350;
-y2 = 350;
-win = false;
-for(int i = 0; i<2; i++){
-
-	if(a[q+i+i].GetState() == 1 && a[w].GetState() == 1 && a[e-i-i].GetState() == 1){
-
-		outtextxy(360, 135, "Gola Wins!!!!");
-		setcolor(CYAN);
-		line(x1+i*150, x2, y1-i*150, y2);
-		win = true;
-		break;
-	}
-}
-
-if(win == true){
-	break;
-}
-
-//Horizontal
-q = 0;
-w = 1;
-e = 2;
-x1 = 200;
-x2 = 225;
-y1 = 350;
-y2 = 225;
-win = false;
-for(int i = 0; i<3; i++){
-
-	if(a[q+i+i+i].GetState() == 1 && a[w+i+i+i].GetState() == 1 && a[e+i+i+i].GetState() == 1){
-
-			outtextxy(360, 135, "Gola Wins!!!!");
-			setcolor(CYAN);
-			line(x1, x2+i*50, y1, y2+i*50);
-			win = true;
-			break;
-		}
-}
-
-if(win == true){
+if(GolaWins()){
 	break;
 }
 
 //Kaata Winning
-
-//Vertical
-q = 0;
-w = 3;
-e = 6;
-x1 = 225;
-x2 = 200;
-y1 = 225;
-y2 = 350;
-win = false;
-for(int i = 0; i<3; i++){
-
-	if(a[q+i].GetState() == 2 && a[w+i].GetState() == 2 && a[e+i].GetState() == 2) {
-		outtextxy(360, 135, "Kaata Wins!!!!");
-		setcolor(CYAN);
-		line(x1+i*50, x2, y1+i*50, y2);
-		win = true;
-		break;
-}
-}
-
-if(win == true){
+if(KaataWins()){
 	break;
 }
 
-//Diagonal
-q = 0;
-w = 4;
-e = 8;
-x1 = 200;
-x2 = 200;
-y1 = 350;
-y2 = 350;
-win = false;
-for(int i = 0; i<2; i++){
-
-	if(a[q+i+i].GetState() == 2 && a[w].GetState() == 2 && a[e-i-i].GetState() == 2){
-
-		outtextxy(360, 135, "Kaata Wins!!!!");
-		setcolor(CYAN);
-		line(x1+i*150, x2, y1-i*150, y2);
-		win = true;
-		break;
-	}
-}
-
-if(win == true){
-	break;
-}
-
-//Horizontal
-q = 0;
-w = 1;
-e = 2;
-x1 = 200;
-x2 = 225;
-y1 = 350;
-y2 = 225;
-win = false;
-for(int i = 0; i<3; i++){
-
-	if(a[q+i+i+i].GetState() == 2 && a[w+i+i+i].GetState() == 2 && a[e+i+i+i].GetState() == 2){
-
-			outtextxy(360, 135, "Gola Wins!!!!");
-			setcolor(CYAN);
-			line(x1, x2+i*50, y1, y2+i*50);
-			win = true;
-			break;
-		}
-}
-
-if(win == true){
-	break;
-}
 //Draw
 int i = 0;
 for(; i<9; i++){
