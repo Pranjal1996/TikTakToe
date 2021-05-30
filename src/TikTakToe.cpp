@@ -1,4 +1,4 @@
-#include "Block.h"
+#include "Computer.h"
 #include<iostream>
 #include<graphics.h>
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 int x = 0;
 int y = 0;
 Block a[9];
-int player = 0;
+bool player = false;
 bool validTurn = false;
 
 bool GolaWins(){
@@ -141,8 +141,7 @@ bool KaataWins(){
 	return win;
 }
 
-bool TurnTeller(int a) {
-
+bool TurnTeller(bool a) {
 //If Kaata is played
 if (a == true) {
 delay(50);
