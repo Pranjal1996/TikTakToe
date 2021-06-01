@@ -131,7 +131,7 @@ bool KaataWins(){
 
 		if(a[q+i+i+i].GetState() == 2 && a[w+i+i+i].GetState() == 2 && a[e+i+i+i].GetState() == 2){
 
-				outtextxy(360, 135, "Gola Wins!!!!");
+				outtextxy(360, 135, "Kaata Wins!!!!");
 				setcolor(CYAN);
 				line(x1, x2+i*50, y1, y2+i*50);
 				win = true;
