@@ -1,10 +1,12 @@
-#include "Computer.h"
-#include<iostream>
-#include<graphics.h>
+#include "Block.h"
+#include <iostream>
+#include <graphics.h>
 using namespace std;
 
 int x = 0;
 int y = 0;
+int x2 = 0;
+int y2 = 0;
 Block a[9];
 bool player = false;
 bool validTurn = false;
@@ -260,6 +262,9 @@ outtextxy(293, 94, "PLAY");
 //Printing from set values
 Play.PrintBlock();
 
+Block ResetButton;
+ResetButton.SetValues(480, 550, 80, 115);
+
 while (!ismouseclick(WM_LBUTTONDOWN)) {
 delay(500);
 
@@ -269,9 +274,23 @@ getmouseclick(WM_LBUTTONDOWN, x, y);
 
 if (Play.BlockClick(x, y)) {
 cleardevice();
+ResetButton.PrintBlock();
+settextstyle(10,4,1);
+outtextxy(540, 110, "RESET");
 PrintIntroPage();
 PlayGame();
 
+}
+if(ResetButton.BlockClick(x, y)){
+cleardevice();
+for(int i = 0; i<9; i++){
+	a[i].Reset();
+}
+ResetButton.PrintBlock();
+settextstyle(10,4,1);
+outtextxy(540, 110, "RESET");
+PrintIntroPage();
+PlayGame();
 }
 }
 

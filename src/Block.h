@@ -83,4 +83,8 @@ class Block {
 		return occupied;
 	}
 
+	void Reset(){
+		occupied = false;
+		DrawTeller = 0;
+	}
 	};
