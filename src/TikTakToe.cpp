@@ -2,7 +2,7 @@
 #include <iostream>
 #include <graphics.h>
 using namespace std;
-
+//amit
 int x = 0;
 int y = 0;
 int x2 = 0;
